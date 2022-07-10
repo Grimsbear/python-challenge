@@ -32,9 +32,9 @@ with open(polldata) as csv_file:
         else:
             CandidateVote3 = CandidateVote3 + 1
         
-    P1 = "{:.0%}".format(CandidateVote1/count)
-    P2 = "{:.0%}".format(CandidateVote2/count)
-    P3 = "{:.0%}".format(CandidateVote3/count)
+    P1 = "{:.2%}".format(CandidateVote1/count)
+    P2 = "{:.2%}".format(CandidateVote2/count)
+    P3 = "{:.2%}".format(CandidateVote3/count)
         
     print("Election Results")
     print("----------------------")
@@ -43,3 +43,17 @@ with open(polldata) as csv_file:
     print(f"{Candidate[0]} : {P1} ({CandidateVote1})")
     print(f"{Candidate[1]} : {P2} ({CandidateVote2})")
     print(f"{Candidate[2]} : {P3} ({CandidateVote3})")
+    print("----------------------")
+
+    if (CandidateVote1/count) >= .5:
+
+        print(f"{Candidate[0]} is the Winner")
+    
+    elif (CandidateVote2/count) >= .5:
+
+        print(f"{Candidate[1]} is the Winner")
+
+    else:
+
+        print(f"{Candidate[2]} is the Winner")
+    
