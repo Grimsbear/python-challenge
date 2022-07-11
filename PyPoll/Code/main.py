@@ -12,6 +12,7 @@ with open(polldata) as csv_file:
     #print(csvreader)
     csv_header = next(csv_file)
 
+    winner = str
     count = 0
     Candidate = []
     CandidateVote1 = 0
@@ -48,12 +49,31 @@ with open(polldata) as csv_file:
     if (CandidateVote1/count) >= .5:
 
         print(f"{Candidate[0]} is the Winner")
+        winner = Candidate[0]
     
     elif (CandidateVote2/count) >= .5:
 
         print(f"{Candidate[1]} is the Winner")
+        winner = Candidate[1]
 
     else:
 
         print(f"{Candidate[2]} is the Winner")
+        winner = Candidate[2]
+
+    output_path = os.path.join("..","analysis","pypoll_result.csv")
+
+    with open(output_path, 'w') as csvfile:
+
+        csvwriter = csv.writer(csvfile, delimiter=',')
+
+        csvwriter.writerow("Election Results")
+        csvwriter.writerow("----------------------")
+        csvwriter.writerow(f"Total Votes : {count}")
+        csvwriter.writerow("----------------------")
+        csvwriter.writerow(f"{Candidate[0]} : {P1} ({CandidateVote1})")
+        csvwriter.writerow(f"{Candidate[1]} : {P2} ({CandidateVote2})")
+        csvwriter.writerow(f"{Candidate[2]} : {P3} ({CandidateVote3})")
+        csvwriter.writerow(f"{winner} is the Winner")
+
     
