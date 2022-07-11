@@ -14,16 +14,39 @@ with open(bankdata) as csv_file:
     #print(csvreader)
     csv_header = next(csv_file)
 
-    months = []
+    months = 0
     Net = 0
+    profit = []
+    Max = 0
+    Min = 100000000
+    Date1 = str
+    Date2 = str
+
 
     for row in csvreader:
 
         Net = Net + int(row[1])
+        months = months + 1
+        profit.append(int(row[1]))
+        #print(row[1])
 
-        if row[0] not in months:
+        if int(row[1]) >= int(Max):
 
-            months.append(row[0])
+            Max = row[1]
+            Date1 = row[0]
 
-    print(f"Total Months: {len(months)}")
+        if int(row[1]) <= int(Min):
+
+            Min = row[1]
+            Date2 = row[0]
+
+    average = (profit[-1] - profit[0]) / len(profit)
+    average = '{:.2f}'.format(average)
+
+    print("Finacial Analysis")
+    print("----------------------")
+    print(f"Total Months: {months}")
     print(f"Net Total: ${Net}")
+    print(f"Average Change: ${average}")
+    print(f"Greatest Increase: {Date1}, ${Max}")
+    print(f"Greatest Decrease: {Date2}, ${Min}")
