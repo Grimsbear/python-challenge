@@ -57,10 +57,10 @@ with open(bankdata) as csv_file:
 
         csvwriter = csv.writer(csvfile, delimiter=',')
 
-        csvwriter.writerow("Finacial Analysis")
-        csvwriter.writerow("----------------------")
-        csvwriter.writerow(f"Total Months: {months}")
-        csvwriter.writerow(f"Net Total: ${Net}")
-        csvwriter.writerow(f"Average Change: ${average}")
-        csvwriter.writerow(f"Greatest Increase: {Date1}, ${Max}")
-        csvwriter.writerow(f"Greatest Decrease: {Date2}, ${Min}")
+        csvwriter.writerow(["Finacial Analysis"])
+        csvwriter.writerow(["----------------------"])
+        csvwriter.writerow([f"Total Months: {months}"])
+        csvwriter.writerow([f"Net Total: ${Net}"])
+        csvwriter.writerow([f"Average Change: ${average}"])
+        csvwriter.writerow([f"Greatest Increase: {Date1}, ${Max}"])
+        csvwriter.writerow([f"Greatest Decrease: {Date2}, ${Min}"])

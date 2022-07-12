@@ -65,15 +65,15 @@ with open(polldata) as csv_file:
 
     with open(output_path, 'w') as csvfile:
 
-        csvwriter = csv.writer(csvfile, delimiter=',')
+        csvwriter = csv.writer(csvfile,delimiter = ",")
 
-        csvwriter.writerow("Election Results")
-        csvwriter.writerow("----------------------")
-        csvwriter.writerow(f"Total Votes : {count}")
-        csvwriter.writerow("----------------------")
-        csvwriter.writerow(f"{Candidate[0]} : {P1} ({CandidateVote1})")
-        csvwriter.writerow(f"{Candidate[1]} : {P2} ({CandidateVote2})")
-        csvwriter.writerow(f"{Candidate[2]} : {P3} ({CandidateVote3})")
-        csvwriter.writerow(f"{winner} is the Winner")
+        csvwriter.writerow(["Election Results"])
+        csvwriter.writerow(["----------------------"])
+        csvwriter.writerow([f"Total Votes : {count}"])
+        csvwriter.writerow(["----------------------"])
+        csvwriter.writerow([f"{Candidate[0]} : {P1} ({CandidateVote1})"])
+        csvwriter.writerow([f"{Candidate[1]} : {P2} ({CandidateVote2})"])
+        csvwriter.writerow([f"{Candidate[2]} : {P3} ({CandidateVote3})"])
+        csvwriter.writerow([f"{winner} is the Winner"])
 
     
